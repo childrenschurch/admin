@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- site metas -->
+  <title>Christ's Heart Children</title>
+
+  <link rel="icon" href="favicon.png" type="image/gif" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+
+  <meta name="author" content="Christ's Heart Children">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/171bed3d72.js" crossorigin="anonymous"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Comic+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Boogaloo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Schoolbell&display=swap" rel="stylesheet">
+
+</head>
+<!-- body -->
+
+<body>
+
+
+  <header>
+    <!-- header inner -->
+   <!-- header inner -->
+   <nav class="navbar navbar-expand-md chmi text-light">
+    <a class="navbar-brand" href="#">
+      <img src="chcimages/logow.png"  height="50" alt="Company Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+     
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="btn border-0 btn-lightblue" href="https://christsheart.org/" onclick="return confirmRedirect()">CHMI Home <i class="fas fa-sign-in-alt"></i></a>
+        </li>
+        
+        <script>
+          function confirmRedirect() {
+            Swal.fire({
+              title: 'Visit Christs Heart Website?',
+              text: 'You will be redirected to ChristsHeart.org',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonClass: 'btn-lightgreen',
+              cancelButtonClass: 'chmi',
+              confirmButtonText: 'Yes, we go',
+              cancelButtonText: 'cancel'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = 'https://christsheart.org/';
+              }
+            })
+            return false;
+          }
+          </script>
+          
+        
+      </ul>
+      <h1 class="">
+        <button class="btn bg-light text-dark ms-5 " onclick="window.location.href='index.html'"> <i class="fas fa-sign-out-alt"></i> Logout</button>
+        
+      </h1>
+    </div>
+  </nav>
+  
+        
+  
+    </header>
+    <div class="container mt-5">
+  
+      <h2 class="text-center mb-3  p-3 "><i class="fa-solid fa-database lightblue"></i> <span class="heading chmi-text">SERVICE ATTENDANCE REPORTS</span>
+        <button class="btn chmi  mr-3  my-1  ms-lg-5" onclick="return  gotogooglesheet()"> <i class="fas fa-edit"></i> Detailed Database</button>
+           </h2>
+           <script>
+            function gotogooglesheet() {
+              Swal.fire({
+                title: 'See the Google sheet database?',
+                text: 'You will be redirected to the Google sheet database',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonClass: 'btn-lightgreen',
+                 cancelButtonClass: 'chmi',
+                confirmButtonText: 'Yes, we go',
+                cancelButtonText: 'Cancel'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href = 'https://docs.google.com/spreadsheets/d/1On5yauXfXeSpoRE4DnWdGfCwJGzxtJ153A9IvqDzt-M/edit?usp=sharing';
+                }
+              })
+              return false;
+            }
+            </script>
+          <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <div class="row">
+      <div class="form-group text-center col-md-8 p-3">
+       <div class="row">
+       <div class="col-md-6">
+        <select class="form-control bg-light " id="branches">
+          <option value="" >Select a branch</option>
+          <option value="bugolobi" class="">Bugolobi</option>
+              <option value="nairobi" class="">Nairobi</option>
+               <option value="entebbe" class="">Entebbe</option>
+              <option value="fortportal" class="">Fortportal</option>
+              <option value="jinja" class="">Jinja</option>
+              <option value="kabale" class="">Kabale</option>
+              <option value="kampala" class="">Kampala</option>
+              <option value="canada" class="">Canada</option>
+              <option value="lugazi" class="">Lugazi</option>
+              <option value="kisaasi" class="">Kisaasi</option>
+              <option value="kisoro" class="">Kisoro</option>
+              <option value="kyebando" class="">Kyebando</option>
+             <option value="makerere" class="">Makerere</option>
+             <option value="masaka" class="">Masaka</option>
+              <option value="mbarara" class="">Mbarara</option>
+              <option value="mityana" class="">Mityana</option>
+              <option value="mukono" class="">Mukono</option>
+              <option value="nansana" class="">Nansana</option>
+              <option value="UK" class="">UK</option>
+              <option value="USA" class="">USA</option>
+        </select>
+       </div>
+       <div class="col-md-3">
+        <button class="btn chmi border-o my-1" onclick="showAll()"> <i class="fa-solid fa-eye"></i> Show All</button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn chmi border-o  my-1" onclick="showFiltered()"> <i class="fa-solid fa-eye"></i> Show Branch</button>
+      </div>
+      </div>
+       </div>
+      <div class="col-md-4 p-3">
+        <button class="btn btn-lightgreen   border-o " onclick="showForm()"><i class="fa-sharp fa-solid fa-plus"></i> New report</button>
+      </div>
+
+    </div>
+
+  
+  
+ 
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   <!-- Add this HTML code where you want the table to appear -->
+<table class="table table-striped mb-5">
+  <thead>
+    <tr class="bg-lightpink text-dark">
+      <th>Branch</th>
+      <th>Day</th>
+      <th>Event</th>
+      <th>Boys</th>
+      <th>Girls</th>
+      <th>Total</th>
+      <th>Men</th>
+      <th>Ladies</th>
+      <th>Total_techers</th>
+      <th>Offertory</th>
+      <th>Services</th>
+    </tr>
+  </thead>
+  <tbody id="table-body">
+  </tbody>
+</table>
+</div>
+<!-- Add this JavaScript code to fetch and populate all data from SheetDB using a function named filterTable() -->
+<script>
+  function showAll() {
+ 
+    // Fetch data from SheetDB API
+    fetch('https://sheetdb.io/api/v1/wqr29h8b3drq1')
+      .then(response => response.json())
+      .then(data => {
+        // Generate HTML elements to display all data in the table
+        const tableBody = document.getElementById('table-body');
+        
+        tableBody.innerHTML = ''; // Clear any existing rows
+        data.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${row.branch}</td>
+            <td>${row.day}</td>
+            <td>${row.event}</td>
+            <td>${row.boys}</td>
+            <td>${row.girls}</td>
+            <td>${row.total}</td>
+            <td>${row.male_teachers}</td>
+            <td>${row.female_teachers}</td>
+            <td>${row.total_teachers}</td>
+            <td>${row.offertory}</td>
+            <td>${row.total_services}</td>
+          `;
+          tableBody.appendChild(tr);
+        });
+      });
+  }
+  
+ 
+</script>
+
+    
+    <script>
+  function filterTable() {
+  var selectedBranch = document.getElementById("branches").value;
+  if (selectedBranch === "") {
+    swal("Please select a branch", "", "error");
+  } else {
+    swal({
+  title: "Show reports for only " + selectedBranch + "?",
+  icon: "success",
+  buttons: {
+    cancel: true,
+    confirm: true,
+  },
+  customClass: {
+    confirmButton: "okbtn",
+    cancelButton: "cancelbtn"
+  },
+  onCancel: function() {
+    swal("Cancel button clicked!", "", "info");
+  }
+}).then((result) => {
+  if (result.isConfirmed) {
+    showFiltered()
+
+  } else {
+    // user clicked Cancel button
+  }
+});
+
+  }
+}
+    </script>
+    
+    <script>
+      function showFiltered() {
+        var selectedBranch = document.getElementById("branches").value;
+  if (selectedBranch === "") {
+    swal("Please select a branch", "", "error");
+  } else {
+    swal({
+  title: "Show reports for only " + selectedBranch + "?",
+  icon: "success"
+    });
+  }
+       // Fetch data from SheetDB API
+  fetch('https://sheetdb.io/api/v1/wqr29h8b3drq1')
+    .then(response => response.json())
+    .then(data => {
+      // Filter data based on branch column value
+      //const filteredData = data.filter(row => row.branch === 'mukono');
+      const filteredData = data.filter(row => row.branch === selectedBranch);
+
+      // Generate HTML elements to display filtered data in the table
+      const tableBody = document.getElementById('table-body');
+      document.getElementById('table-body').innerHTML = '';
+      filteredData.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${row.branch}</td>
+          <td>${row.day}</td>
+          <td>${row.event}</td>
+          <td>${row.boys}</td>
+          <td>${row.girls}</td>
+          <td>${row.total}</td>
+          <td>${row.male_teachers}</td>
+            <td>${row.female_teachers}</td>
+            <td>${row.total_teachers}</td>
+          <td>${row.offertory}</td>
+          <td>${row.total_services}</td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    });
+      }
+    </script>
+
+<script>
+  function showForm() {
+    swal({
+        title: "Opening",
+        text: "...",
+        icon: "success",
+        timer: 2000,
+        buttons: false,
+      }).then(function() {
+        window.location.href='newreport.html';
+      });
+   
+  }
+  </script>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <footr class="mt-3 btn-primary">
+      <div class="text-center">
+       
+       <p class="text-center text-dark">
+         <i class="fa-solid fa-envelope"></i> chcchildrenschurch@gmail.com
+       </p>
+      </div>
+             </footr>
+  </body>
+</html>

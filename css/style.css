@@ -1,0 +1,172 @@
+.bg-primary{
+    background-color: #b71f70 !important;
+}
+
+.text-primary{
+    color: #b71f70 !important;
+}
+.btn-primary{
+    background-color: #b71f70 !important;
+    color: #ffffff;
+}
+
+.chmi{
+    background-color: #626161 !important;
+    color: #FFFFFF !important;
+}
+.chmi-text{
+    color: #626161 !important;
+}
+.bg-chmi{
+    background-color: #626161 !important;
+}
+.bg-lightgreen{
+  background-color: #bfec93 !important;
+}
+.bg-lightblue{
+  background-color: #93d6ec !important;
+}
+.bg-lightpink{
+  background-color: #f4becb !important;
+}
+.lightgreen{
+  color: #bfec93 !important;
+}
+.lightblue{
+  color: #93d6ec !important;
+}
+.lightpink{
+  color: #f4becb !important;
+}
+
+.btn-lightpink{
+  background-color: #f4becb !important;
+  color: #474646 !important;
+}
+
+.btn-lightgreen{
+  background-color: #bfec93 !important;
+  color: #474646 !important;
+}
+.btn-lightblue{
+  background-color: #93d6ec !important;
+  color: #474646 !important;
+}
+.blue{
+  color: #67c5e4 !important;
+}
+
+.green{
+  color: #87e467 !important;
+}
+
+.swal-button--confirm {
+    background-color: rgb(30, 30, 30) !important;
+    color: white !important;
+  }
+
+
+  body{
+    font-family: 'Architects Daughter', cursive !important;
+    font-family: 'Boogaloo', cursive !important;
+    font-family: 'Baloo', cursive !important;
+    font-family: 'Finger Paint', cursive !important;
+    font-family: 'Gloria Hallelujah', cursive !important;
+    font-family: 'Luckiest Guy', cursive !important;
+    font-family: 'Schoolbell', cursive !important;
+    font-family: 'Comic Neue', sans-serif !important;
+  
+  }
+  input{
+    font-size: 22px !important;
+    padding: 3px 10px !important;
+    width: 100% !important;
+    border: 0 !important;
+    border-bottom: 1px solid #575757 !important;
+  }
+  input:focus{
+   background-color: #fef7de !important;
+    border: 0 !important;
+   border-style: none !important;
+  }
+  
+  .form-control {
+    font-size: 22px !important;
+    padding: 3px 10px !important;
+    width: 100% !important;
+    border: 0 !important;
+    border-bottom: 1px solid #575757 !important;
+    border-radius: 0 !important;
+  }
+  .form-control:focus{
+   background-color: #fef7de !important;
+    border: 0 !important;
+   border-style: none !important;
+   border-radius: 0 !important;
+  }
+
+  textarea {
+    font-size: 16px !important;
+    padding: 3px 10px !important;
+    width: 100% !important;
+    border: 1px solid #575757 !important;
+    border-radius: 0 !important;
+    min-height: 130px !important;
+  }
+  select{
+    background-color: #fef7de !important;
+    border-radius: 0 !important;
+   }
+  .select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100% !important;
+    background-color: #f4becb !important;
+  }
+  
+  .select-wrapper select {
+    padding-right: 35px;
+    margin-right: 10px;
+  }
+  
+  .select-wrapper .fa {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 5px;
+  }
+  
+  .heading{
+    font-family: 'Fredoka One', cursive;
+    font-weight: normal;
+  }
+ 
+  
+
+  /* Customize the navbar */
+  .navbar {
+ 
+  }
+  
+  .navbar-brand {
+    font-family: 'Comic Neue', sans-serif;
+    font-size: 2rem;
+    color: #FFFFFF;
+  }
+  
+  .nav-link {
+    font-family: 'Comic Neue', sans-serif;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+  }
+  
+  .nav-link:hover {
+    color: #000000;
+  }
+  table tr td{
+    border: 1px solid #000000 !important;
+  }
+  table th {
+    border: 1px solid #000000 !important;
+  }

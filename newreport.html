@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- site metas -->
+  <title>Christ's Heart Children</title>
+
+  <link rel="icon" href="favicon.png" type="image/gif" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+
+  <meta name="author" content="Christ's Heart Children">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/171bed3d72.js" crossorigin="anonymous"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Comic+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Boogaloo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Schoolbell&display=swap" rel="stylesheet">
+
+<style>
+  textarea, .form-control, input{
+font-size: 18px !important;
+  }
+</style>
+</head>
+<!-- body -->
+
+<body>
+
+
+  <header>
+    <!-- header inner -->
+   <!-- header inner -->
+   <nav class="navbar navbar-expand-md chmi text-light">
+    <a class="navbar-brand" href="#">
+      <img src="chcimages/logow.png"  height="50" alt="Company Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+     
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="btn border-0 btn-lightblue" href="https://christsheart.org/" onclick="return confirmRedirect()">CHMI Home <i class="fas fa-sign-in-alt"></i></a>
+        </li>
+        
+        <script>
+       function confirmRedirect() {
+            Swal.fire({
+              title: 'Visit Christs Heart Website?',
+              text: 'You will be redirected to ChristsHeart.org',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonClass: 'btn-lightgreen',
+              cancelButtonClass: 'chmi',
+              confirmButtonText: 'Yes, we go',
+              cancelButtonText: 'cancel'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = 'https://christsheart.org/';
+              }
+            })
+            return false;
+          }
+        </script>
+        
+      </ul>
+      <h1 class="">
+        <button class="btn bg-light text-dark ms-5 " onclick="window.location.href='index.html'"> <i class="fas fa-sign-out-alt"></i> Logout</button>
+        
+      </h1>
+    </div>
+  </nav>
+  
+        
+  
+    </header>
+    <div class="container mt-5">
+  
+      <h2 class="text-center mb-3  whitetext p-3"><i class="fa-solid fa-database lightblue"></i> <span class="heading chmi-text">Create a New Report</span> 
+        <button class="btn btn-lightgreen border-o my-1 ms-lg-5" onclick="showAll()"> <i class="fa-solid fa-eye"></i> See Submitted Reports</button>
+        </h2>
+        <script>
+          function showAll(){
+            window.location.href='messages.html'
+          }
+        </script>
+        <p class="p-1 h4 text-center bg-lightblue">
+Please fill in all the details below. if no answer then type NA or 0
+        </p>
+          <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <div class="row">
+      <div class="form-group text-center col-md-8 p-3">
+       <div class="row">
+       <div class="col-md-6 m-0">
+      <form action=""id="myForm">
+        <div class="m-1">
+          <div class="select-wrapper">
+            <select class="form-control bg-light" id="branches">
+              <option value="">Select a branch</option>
+              <option value="bugolobi" class="">Bugolobi</option>
+              <option value="nairobi" class="">Nairobi</option>
+               <option value="entebbe" class="">Entebbe</option>
+              <option value="fortportal" class="">Fortportal</option>
+              <option value="jinja" class="">Jinja</option>
+              <option value="kabale" class="">Kabale</option>
+              <option value="kampala" class="">Kampala</option>
+              <option value="canada" class="">Canada</option>
+              <option value="lugazi" class="">Lugazi</option>
+              <option value="kisaasi" class="">Kisaasi</option>
+              <option value="kisoro" class="">Kisoro</option>
+              <option value="kyebando" class="">Kyebando</option>
+             <option value="makerere" class="">Makerere</option>
+             <option value="masaka" class="">Masaka</option>
+              <option value="mbarara" class="">Mbarara</option>
+              <option value="mityana" class="">Mityana</option>
+              <option value="mukono" class="">Mukono</option>
+              <option value="nansana" class="">Nansana</option>
+              <option value="UK" class="">UK</option>
+              <option value="USA" class="">USA</option>
+            </select>
+            <span class="fa fa-caret-down"></span>
+          </div>
+        </div>
+        
+        <div class="m-1">
+          <div class="select-wrapper">
+          <select class="form-control bg-light " id="event">
+            <option value="sundayservice" class="">Sunday Service</option>
+            <option value="virtuouswoman" class="">Virtuous Woman</option>
+            <option value="camp" class="">Zion Camp</option>
+            <option value="novemberblessing" class="">November Blessing</option>
+            <option value="babiesconference" class="">Babies' Conference</option>
+            <option value="menofaction" class="">Men's Conference</option>
+            <option value="anniversary" class="">Church Anniversary</option>
+          </select>
+          <span class="fa fa-caret-down"></span>
+          </div>
+        </div>
+        <div class="m-1">
+          <input type="date" name="day" id="day" placeholder="Event Date">
+         </div> 
+        <div class="m-1">
+          <input  type="text"  name="boys" id="boys" placeholder="Boys">
+        </div>
+        <div class="m-1">
+          <input  type="text"  name="girls" id="girls" placeholder="Girls">
+        </div>
+        <div class="m-1">
+          <input  type="text"  name="total" id="total" placeholder="Total">
+        </div>
+      
+       
+        
+  
+   
+       </div>
+      
+      <div class="col-md-6">
+      
+        <div class="m-1">
+          <input  type="text"  name="bornagain" id="bornagain" placeholder="Newly Born again">
+        </div>
+      <div class="m-1">
+        <input type="text" name="offertory" id="offertory" placeholder="Offertory">
+      </div>
+      <div class="m-1">
+        <input  type="text"  name="services" id="services" placeholder="Services">
+      </div>
+      <div class="m-1">
+        <input  type="text"  name="male_teachers" id="male_teachers" placeholder="number of male teachers"> 
+      </div>
+      <div class="m-1">
+        <input  type="text"  name="female_teachers" id="female_teachers" placeholder="number of female teachers">
+      </div>
+      <div class="m-1">
+        <input  type="text"  name="total_teachers" id="total_teachers" placeholder="Total teachers">
+      </div>
+
+     
+     
+     
+      
+      </div>
+      </div>
+       </div>
+      <div class="col-md-4 p-3">
+        <div class="m-1">
+          <input type="text" name="enteredby" id="enteredby" placeholder="Your Name"/>
+        </div>
+        <div class="m-1">
+          <textarea type="text" name="remarks" id="remarks" placeholder="General Comments/ Remarks"></textarea>
+        </div>
+        <div class="m-1">
+          <button class="btn chmi m-3" onclick="clearform()">Clear</button>
+           <button class="btn btn-lightpink   border-o " onclick="submitreport()"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+        
+        </div>
+      </form>   
+      </div>
+
+    </div>
+
+  <script>
+    function clearform(){
+      document.getElementById("myForm").reset();
+
+    }
+  </script>
+  
+ 
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   <!-- Add this HTML code where you want the table to appear -->
+
+</div>
+<!-- Add this JavaScript code to fetch and populate all data from SheetDB using a function named filterTable() -->
+<script>
+  function submitreport() {
+ // Get form elements
+ const API_ENDPOINT = 'https://sheetdb.io/api/v1/wqr29h8b3drq1';
+ const branch=document.getElementById('branches');
+const event = document.getElementById('event');
+const day = document.getElementById('day');
+const boys = document.getElementById('boys');
+const girls = document.getElementById('girls');
+const total = document.getElementById('total');
+const total_teachers = document.getElementById('total_teachers');
+const offertory = document.getElementById('offertory');
+const total_services = document.getElementById('services');
+const male_teachers = document.getElementById('male_teachers');
+const female_teachers = document.getElementById('female_teachers');
+const enteredby=document.getElementById('enteredby');
+const special_comment=document.getElementById('remarks');
+const newly_born_again=document.getElementById('bornagain');
+
+// Validate function
+function validateForm() {
+  if (branch.value === '') {
+    swal('Error', 'Please select a branch', 'error');
+    return false;
+  }
+
+  if (event.value === '') {
+    swal('Error', 'Please select an event', 'error');
+    return false;
+  }
+  if (day.value === '') {
+    swal('Error', 'Please select a date', 'error');
+    return false;
+  }
+  if (boys.value === '') {
+    swal('Error', 'Please enter the number of boys', 'error');
+    return false;
+  }
+  if (girls.value === '') {
+    swal('Error', 'Please enter the number of girls', 'error');
+    return false;
+  }
+  if (total.value === '') {
+    swal('Error', 'Please enter the total number of children', 'error');
+    return false;
+  }
+  if (newly_born_again.value === '') {
+    swal('Error', 'How many children got born again?', 'error');
+    return false;
+  }
+
+
+  if (offertory.value === '') {
+    swal('Error', 'Please enter the offertory amount', 'error');
+    return false;
+  }
+  if (services.value === '') {
+    swal('Error', 'Please enter the number of services held', 'error');
+    return false;
+  }
+  if (male_teachers.value === '') {
+    swal('Error', 'Please enter the number of male teachers', 'error');
+    return false;
+  }
+  if (female_teachers.value === '') {
+    swal('Error', 'Please enter the number of female teachers', 'error');
+    return false;
+  }
+  if (total_teachers.value === '') {
+    swal('Error', 'Please enter the total number of teachers', 'error');
+    return false;
+  }
+  if (enteredby.value === '') {
+    swal('Error', 'Please enter your name', 'error');
+    return false;
+  }
+  if (special_comment.value === '') {
+    swal('Error', 'Please type a comment about the day', 'error');
+    return false;
+  }
+  //check if inputs are numerical
+  if(isNaN(boys.value)){
+    swal('Error', 'Number of boys is a number, not text.', 'error');
+    return false;
+  }
+  if(isNaN(girls.value)){
+    swal('Error', 'Number of girls is a number, not text.', 'error');
+    return false;
+  }
+  if(isNaN(total.value)){
+    swal('Error', 'Total Number of children is a number, not text.', 'error');
+    return false;
+  }
+  if(isNaN(male_teachers.value)){
+    swal('Error', 'Number of male teachers is a number, not text.', 'error');
+    return false;
+  }
+  if(isNaN(female_teachers.value)){
+    swal('Error', 'Number of female teachers is a number, not text.', 'error');
+    return false;
+  }
+  if(isNaN(total_services.value)){
+    swal('Error', 'Number of services is a number, not text.', 'error');
+    return false;
+  }
+  if(isNaN(total_teachers.value)){
+    swal('Error', 'Total Number of teachers is a number, not text.', 'error');
+    return false;
+  }
+  return true;
+}
+
+// Add submit event listener to form
+const form = document.getElementById('myForm');
+
+const data = {
+  branch: branch.value,
+  event: event.value,
+  day: day.value,
+  boys: boys.value,
+  girls: girls.value,
+  total: total.value,
+  total_teachers: total_teachers.value,
+  offertory: offertory.value,
+  total_services: total_services.value,
+  male_teachers: male_teachers.value,
+  female_teachers: female_teachers.value,
+  enteredby: enteredby.value,
+  special_comment: special_comment.value,
+  newly_born_again: newly_born_again.value,
+  date: new Date().toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })
+};
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (validateForm()) {
+    swal({
+        title: "Sending...",
+        text: "please wait",
+        timer: 2000,
+        buttons: false,
+      }).then(function() {
+        fetch(API_ENDPOINT, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+}).then(response => {
+  swal('Success', 'Your report has been successfully submitted', 'success'); 
+  document.getElementById("myForm").reset();
+}).catch(error => {
+  swal('Error submitting the report:', 'error');
+});
+      });
+  }
+});
+
+  }
+  
+ 
+</script>
+
+    
+    <script>
+  function filterTable() {
+  var selectedBranch = document.getElementById("branches").value;
+  if (selectedBranch === "") {
+    swal("Please select a branch", "", "error");
+  } else {
+    swal({
+  title: "Show reports for only " + selectedBranch + "?",
+  icon: "success",
+  buttons: {
+    cancel: true,
+    confirm: true,
+  },
+  customClass: {
+    confirmButton: "okbtn",
+    cancelButton: "cancelbtn"
+  },
+  onCancel: function() {
+    swal("Cancel button clicked!", "", "info");
+  }
+}).then((result) => {
+  if (result.isConfirmed) {
+    showFiltered()
+
+  } else {
+    // user clicked Cancel button
+  }
+});
+
+  }
+}
+    </script>
+    
+    <script>
+      function showFiltered() {
+        var selectedBranch = document.getElementById("branches").value;
+  if (selectedBranch === "") {
+    swal("Please select a branch", "", "error");
+  } else {
+    swal({
+  title: "Show reports for only " + selectedBranch + "?",
+  icon: "success"
+    });
+  }
+       // Fetch data from SheetDB API
+  fetch('https://sheetdb.io/api/v1/wqr29h8b3drq1')
+    .then(response => response.json())
+    .then(data => {
+      // Filter data based on branch column value
+      //const filteredData = data.filter(row => row.branch === 'mukono');
+      const filteredData = data.filter(row => row.branch === selectedBranch);
+
+      // Generate HTML elements to display filtered data in the table
+      const tableBody = document.getElementById('table-body');
+      document.getElementById('table-body').innerHTML = '';
+      filteredData.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${row.branch}</td>
+          <td>${row.day}</td>
+          <td>${row.event}</td>
+          <td>${row.boys}</td>
+          <td>${row.girls}</td>
+          <td>${row.total}</td>
+          <td>${row.male_teachers}</td>
+            <td>${row.female_teachers}</td>
+            <td>${row.total_teachers}</td>
+          <td>${row.offertory}</td>
+          <td>${row.total_services}</td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    });
+      }
+    </script>
+
+<script>
+  function showForm() {
+    swal({
+      title: "New Report",
+      html: `
+               <input type="text" name="branch" id="branch" placeholder="Branch">
+                
+    
+  `,
+        buttons: {
+      cancel: true,
+      confirm: {
+        text: "Submit",
+        value: true,
+        visible: true,
+        className: "",
+        closeModal: false,
+      },
+    },
+      preConfirm: function () {
+        return new Promise(function (resolve) {
+          resolve([
+          Swal.getPopup().querySelector('#branch').value,
+            Swal.getPopup().querySelector('#day').value,
+            Swal.getPopup().querySelector('#event').value,
+            Swal.getPopup().querySelector('#boys').value,
+            Swal.getPopup().querySelector('#girls').value,
+            Swal.getPopup().querySelector('#total').value,
+            Swal.getPopup().querySelector('#male_teachers').value,
+            Swal.getPopup().querySelector('#female_teachers').value,
+            Swal.getPopup().querySelector('#total_teachers').value,
+            Swal.getPopup().querySelector('#offertory').value,
+            Swal.getPopup().querySelector('#services').value,
+          ]);
+        });
+      },
+    }).then(function (result) {
+      if (result.value) {
+        var data = {
+          "branch": result.value[0],
+          "day": result.value[1],
+          "event": result.value[2],
+          "boys": result.value[3],
+          "girls": result.value[4],
+          "total": result.value[5],
+          "male_teachers": result.value[6],
+          "female_teachers": result.value[7],
+          "total_teachers": result.value[8],
+          "offertory": result.value[9],
+          "services": result.value[10],
+        };
+        
+        // Send a POST request to the SheetDB API to insert the data
+        fetch("https://sheetdb.io/api/v1/wqr29h8b3drq1", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error(response.statusText);
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            swal("Data added successfully");
+          })
+          .catch(function (error) {
+            swal("Oops...", "Something went wrong!", "error");
+          });
+      }
+    });
+  }
+  </script>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <footr class="mt-3 btn-primary">
+      <div class="text-center">
+      
+       <p class="text-center text-dark">
+         <i class="fa-solid fa-envelope"></i> chcchildrenschurch@gmail.com
+       </p>
+      </div>
+             </footr>
+  </body>
+</html>
