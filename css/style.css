@@ -15,10 +15,10 @@
     color: #FFFFFF !important;
 }
 .chmi-text{
-    color: #626161 !important;
+    color: #4c4c4c !important;
 }
 .bg-chmi{
-    background-color: #626161 !important;
+    background-color: #4c4c4c !important;
 }
 .bg-lightgreen{
   background-color: #bfec93 !important;
@@ -39,11 +39,23 @@
   color: #f4becb !important;
 }
 
+.rounded{
+  border-radius: 10px;
+}
+
 .btn-lightpink{
   background-color: #f4becb !important;
   color: #474646 !important;
 }
-
+.bg-yellow{
+  background-color: #fff7a2 !important;
+}
+.text-yellow{
+  color: #fff7a2 !important;
+}
+.bg-black{
+  background-color: #000000 !important;
+}
 .btn-lightgreen{
   background-color: #bfec93 !important;
   color: #474646 !important;
@@ -145,9 +157,28 @@
   
 
   /* Customize the navbar */
-  .navbar {
- 
+  .separator {
+    background-color: transparent !important;
+    color: transparent !important;
+    padding: 10 !important;
+    margin:10px 0;
   }
+
+  .service {
+    background-color: #b3ea96 !important;
+    padding: 0 !important;
+    border-radius: 10px;
+     }
+     .service2 {
+      background-color: #ffe3af !important;
+      padding: 0 !important;
+      border-radius: 10px;
+       }
+       .service3 {
+        background-color: #d5e5e5 !important;
+        padding: 0 !important;
+        border-radius: 10px;
+         }
   
   .navbar-brand {
     font-family: 'Comic Neue', sans-serif;

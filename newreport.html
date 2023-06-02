@@ -41,7 +41,12 @@
 <style>
   textarea, .form-control, input{
 font-size: 18px !important;
+background-color: transparent !important;
+
   }
+  input::placeholder{
+color: #000 !important;
+}
 </style>
 </head>
 <!-- body -->
@@ -56,13 +61,13 @@ font-size: 18px !important;
     <a class="navbar-brand" href="#">
       <img src="chcimages/logow.png"  height="50" alt="Company Logo">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="text-center navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" aria-hidden="true"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
      
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li class="nav-item text-center">
           <a class="btn border-0 btn-lightblue" href="https://christsheart.org/" onclick="return confirmRedirect()">CHMI Home <i class="fas fa-sign-in-alt"></i></a>
         </li>
         
@@ -87,7 +92,17 @@ font-size: 18px !important;
         </script>
         
       </ul>
-      <h1 class="">
+    
+         <h2 class="text-center   whitetext ms-md-5"><i class="fa-solid fa-database lightblue"></i> <span class="heading text-white">Create a New Report</span> 
+        <button class="btn btn-lightpink border-o my-1 ms-lg-5" onclick="showAll()"> <i class="fa-solid fa-eye"></i> See Submitted Reports</button>
+        </h2>
+        <script>
+          function showAll(){
+            window.location.href='messages.html'
+          }
+        </script>
+
+          <h1 class="text-center">
         <button class="btn bg-light text-dark ms-5 " onclick="window.location.href='index.html'"> <i class="fas fa-sign-out-alt"></i> Logout</button>
         
       </h1>
@@ -97,19 +112,13 @@ font-size: 18px !important;
         
   
     </header>
-    <div class="container mt-5">
-  
-      <h2 class="text-center mb-3  whitetext p-3"><i class="fa-solid fa-database lightblue"></i> <span class="heading chmi-text">Create a New Report</span> 
-        <button class="btn btn-lightgreen border-o my-1 ms-lg-5" onclick="showAll()"> <i class="fa-solid fa-eye"></i> See Submitted Reports</button>
-        </h2>
-        <script>
-          function showAll(){
-            window.location.href='messages.html'
-          }
-        </script>
-        <p class="p-1 h4 text-center bg-lightblue">
+     <p class="p-1 h4 text-center bg-lightblue m-0">
 Please fill in all the details below. if no answer then type NA or 0
         </p>
+    <div class="container mt-1">
+  
+   
+       
           <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -118,104 +127,167 @@ Please fill in all the details below. if no answer then type NA or 0
        <div class="row">
        <div class="col-md-6 m-0">
       <form action=""id="myForm">
-        <div class="m-1">
-          <div class="select-wrapper">
-            <select class="form-control bg-light" id="branches">
-              <option value="">Select a branch</option>
-              <option value="bugolobi" class="">Bugolobi</option>
-              <option value="nairobi" class="">Nairobi</option>
-               <option value="entebbe" class="">Entebbe</option>
-              <option value="fortportal" class="">Fortportal</option>
-              <option value="jinja" class="">Jinja</option>
-              <option value="kabale" class="">Kabale</option>
-              <option value="kampala" class="">Kampala</option>
-              <option value="canada" class="">Canada</option>
-              <option value="lugazi" class="">Lugazi</option>
-              <option value="kisaasi" class="">Kisaasi</option>
-              <option value="kisoro" class="">Kisoro</option>
-              <option value="kyebando" class="">Kyebando</option>
-             <option value="makerere" class="">Makerere</option>
-             <option value="masaka" class="">Masaka</option>
-              <option value="mbarara" class="">Mbarara</option>
-              <option value="mityana" class="">Mityana</option>
-              <option value="mukono" class="">Mukono</option>
-              <option value="nansana" class="">Nansana</option>
-              <option value="UK" class="">UK</option>
-              <option value="USA" class="">USA</option>
+       
+     
+    <div class="m-3">
+            <input type="date" name="day" id="day" placeholder="Event Date">
+           </div> 
+          <div class="m-3">
+            <div class="select-wrapper">
+              <select class="form-control bg-light" id="branches">
+                <option value="">Select a branch</option>
+                <option value="bugolobi" class="">Bugolobi</option>
+                <option value="nairobi" class="">Nairobi</option>
+                 <option value="entebbe" class="">Entebbe</option>
+                <option value="fortportal" class="">Fortportal</option>
+                <option value="jinja" class="">Jinja</option>
+                <option value="kabale" class="">Kabale</option>
+                <option value="kampala" class="">Kampala</option>
+                <option value="canada" class="">Canada</option>
+                <option value="lugazi" class="">Lugazi</option>
+                <option value="kisaasi" class="">Kisaasi</option>
+                <option value="kisoro" class="">Kisoro</option>
+                <option value="kyebando" class="">Kyebando</option>
+               <option value="makerere" class="">Makerere</option>
+               <option value="masaka" class="">Masaka</option>
+                <option value="mbarara" class="">Mbarara</option>
+                <option value="mityana" class="">Mityana</option>
+                <option value="mukono" class="">Mukono</option>
+                <option value="nansana" class="">Nansana</option>
+                <option value="UK" class="">UK</option>
+                <option value="USA" class="">USA</option>
+                <option value="other" class="">Other</option>
+              </select>
+              <span class="fa fa-caret-down"></span>
+            </div>
+          </div>
+          
+          <div class="m-3">
+            <div class="select-wrapper">
+            <select class="form-control bg-light " id="event">
+              <option value="sunday service" class="">Sunday Service</option>
+              <option value="virtuous woman" class="">Virtuous Woman</option>
+              <option value="camp" class="">Zion Camp</option>
+              <option value="november blessing" class="">November Blessing</option>
+              <option value="babies conference" class="">Babies' Conference</option>
+              <option value="men of action" class="">Men's Conference</option>
+              <option value="anniversary" class="">Church Anniversary</option>
+              <option value="Easter" class="">Easter</option>
+              <option value="Christmas" class="">Christmas</option>
+              <option value="Other" class="">Other</option>
             </select>
             <span class="fa fa-caret-down"></span>
+            </div>
           </div>
-        </div>
+
+   <div class="service">
+    <div class="m-1 text-left p-1">
+      <p class="text-light bg-chmi text-left m-0 mt-3 fw-bolder  p-2 rounded h4">First Service <i class="fa-solid fa-pen-to-square "></i></p>
+      </div>
+      <div class="m-3">
+        <input  type="text"  name="firstserviceboys" id="firstserviceboys" placeholder="Boys">
+      </div>
+      <div class="m-3">
+        <input  type="text"  name="firstservicegirls" id="firstservicegirls" placeholder="Girls">
+      </div>
+      <div class="m-3">
+        <p class="separator1"><span> </span><span id="total1"></span></p>
         
-        <div class="m-1">
-          <div class="select-wrapper">
-          <select class="form-control bg-light " id="event">
-            <option value="sunday service" class="">Sunday Service</option>
-            <option value="virtuous woman" class="">Virtuous Woman</option>
-            <option value="camp" class="">Zion Camp</option>
-            <option value="november blessing" class="">November Blessing</option>
-            <option value="babies conference" class="">Babies' Conference</option>
-            <option value="men of action" class="">Men's Conference</option>
-            <option value="anniversary" class="">Church Anniversary</option>
-          </select>
-          <span class="fa fa-caret-down"></span>
-          </div>
-        </div>
-        <div class="m-1">
-          <input type="date" name="day" id="day" placeholder="Event Date">
-         </div> 
-        <div class="m-1">
-          <input  type="text"  name="boys" id="boys" placeholder="Boys">
-        </div>
-        <div class="m-1">
-          <input  type="text"  name="girls" id="girls" placeholder="Girls">
-        </div>
-        <div class="m-1">
-          <input  type="text"  name="total" id="total" placeholder="Total">
-        </div>
-      
+      </div>
+      <div class="m-3">
+        <input  type="text"  name="male_teachers1" id="male_teachers1" placeholder="Male teachers"> 
+      </div>
+      <div class="m-3">
+        <input  type="text"  name="female_teachers1" id="female_teachers1" placeholder="Female teachers">
+      </div>
+      <div class="m-3">
+        <p class="separator"><span> -------</span><span id="totalt1"></span></p>
        
-        
-  
-   
+      </div>
+   </div>
+
        </div>
       
       <div class="col-md-6">
-      
-        <div class="m-1">
-          <input  type="text"  name="bornagain" id="bornagain" placeholder="Newly Born again">
-        </div>
-      <div class="m-1">
-        <input type="text" name="offertory" id="offertory" placeholder="Offertory">
-      </div>
-      <div class="m-1">
-        <input  type="text"  name="services" id="services" placeholder="Services">
-      </div>
-      <div class="m-1">
-        <input  type="text"  name="male_teachers" id="male_teachers" placeholder="number of male teachers"> 
-      </div>
-      <div class="m-1">
-        <input  type="text"  name="female_teachers" id="female_teachers" placeholder="number of female teachers">
-      </div>
-      <div class="m-1">
-        <input  type="text"  name="total_teachers" id="total_teachers" placeholder="Total teachers">
+        
+      <div class="service2">
+        <div class="m-1 text-left">
+          <p class="text-light bg-chmi text-left m-0 mt-3 fw-bolder  p-2 rounded h4">Second Service <i class="fa-solid fa-pen-to-square "></i></p>
+          </div>
+          <div class="m-3">
+            <input  type="text"  name="secondserviceboys" id="secondserviceboys" placeholder="Boys">
+          </div>
+          <div class="m-3">
+            <input  type="text"  name="secondservicegirls" id="secondservicegirls" placeholder="Girls">
+          </div>
+          <div class="m-3">
+            <p  class="separator"><span></span><span id="total2"></span></p>
+                </div>
+         
+          <div class="m-3">
+            <input  type="text"  name="male_teachers2" id="male_teachers2" placeholder="Male teachers"> 
+          </div>
+          <div class="m-3">
+            <input  type="text"  name="female_teachers2" id="female_teachers2" placeholder="Female teachers">
+          </div>
+          <div class="m-3">
+            <p class="separator"><span>-----------------------------</span><span id="totalt1"></span></p>
+                    </div>
       </div>
 
+    <div class="service3">
+      <div class="m-1 text-left">
+        <p class="text-light bg-chmi text-left m-0 mt-3 fw-bolder  p-2 rounded h4">Third Service <i class="fa-solid fa-pen-to-square "></i></p>
+        </div>
+        <div class="m-3">
+          <input  type="text"  name="thirdserviceboys" id="thirdserviceboys" placeholder="Boys">
+        </div>
+        <div class="m-3">
+          <input  type="text"  name="thirdservicegirls" id="thirdservicegirls" placeholder="Girls">
+        </div>
+        <div class="m-3">
+          <p class="separator"><span></span><span id="total3"></span></p>
+          </div>
+        <div class="m-3">
+          <input  type="text"  name="male_teachers3" id="male_teachers3" placeholder="Male teachers"> 
+        </div>
+        <div class="m-3">
+          <input  type="text"  name="female_teachers" id="female_teachers3" placeholder="Female teachers">
+        </div>
+        <div class="m-3">
+          <p class="separator"><span>----------------------------- </span><span id="totalt"></span></p>
+                   </div>
+
+    
+    </div>
      
-     
-     
+  
       
       </div>
       </div>
        </div>
       <div class="col-md-4 p-3">
-        <div class="m-1">
+        <div class="m-3">
+          <input  type="text"  name="bornagain" id="bornagain" placeholder="Newly Born again">
+        </div>
+      <div class="m-3">
+        <input type="text" name="offertory" id="offertory" placeholder="Total Offertory -UGX">
+      </div>
+      <div class="m-3">
+        <input  type="text"  name="services" id="services" placeholder="Services">
+      </div>
+        <div class="m-3">
           <input type="text" name="enteredby" id="enteredby" placeholder="Your Name"/>
         </div>
-        <div class="m-1">
+        <div class="m-3">
           <textarea type="text" name="remarks" id="remarks" placeholder="General Comments/ Remarks"></textarea>
         </div>
-        <div class="m-1">
+        <div class="m-3">
+          <textarea type="text" name="challenges" id="challenges" placeholder="Challenges of the day"></textarea>
+        </div>
+     
+
+        <div class="m-3">
           <button class="btn chmi m-3" onclick="clearform()">Clear</button>
            <button class="btn btn-lightpink   border-o " onclick="submitreport()"><i class="fa-solid fa-paper-plane"></i> Submit</button>
         
@@ -245,15 +317,44 @@ Please fill in all the details below. if no answer then type NA or 0
  const API_ENDPOINT = 'https://sheetdb.io/api/v1/wqr29h8b3drq1';
  const branch=document.getElementById('branches');
 const event = document.getElementById('event');
-const day = document.getElementById('day');
-const boys = document.getElementById('boys');
-const girls = document.getElementById('girls');
-const total = document.getElementById('total');
-const total_teachers = document.getElementById('total_teachers');
+const dayInput = document.getElementById('day');
+const dayValue = dayInput.value;
+const day = new Date(dayValue);
+const options = { day: '2-digit', month: 'short', year: 'numeric' };
+const formattedDay = day.toLocaleDateString('en-US', options);
+
+console.log(formattedDay);
+
+
+const firstserviceboys = document.getElementById('firstserviceboys');
+const firstservicegirls = document.getElementById('firstservicegirls');
+const firstservicetotal = parseInt(firstserviceboys.value)+parseInt(firstservicegirls.value);
+const male_teachers1 = document.getElementById('male_teachers1');
+const female_teachers1 = document.getElementById('female_teachers1');
+const total_teachers1 = parseInt(male_teachers1.value)+parseInt(female_teachers1.value);
+
+const secondserviceboys = document.getElementById('secondserviceboys');
+const secondservicegirls = document.getElementById('secondservicegirls');
+const secondservicetotal = parseInt(secondserviceboys.value)+parseInt(secondservicegirls.value);
+const male_teachers2 = document.getElementById('male_teachers2');
+const female_teachers2 = document.getElementById('female_teachers2');
+const total_teachers2 = parseInt(male_teachers2.value)+parseInt(female_teachers2.value);
+
+const thirdserviceboys = document.getElementById('thirdserviceboys');
+const thirdservicegirls = document.getElementById('thirdservicegirls');
+const thirdservicetotal = parseInt(thirdserviceboys.value)+parseInt(thirdservicegirls.value);
+const male_teachers3 = document.getElementById('male_teachers3');
+const female_teachers3 = document.getElementById('female_teachers3');
+const total_teachers3 = parseInt(male_teachers3.value)+parseInt(female_teachers3.value);
+
+
 const offertory = document.getElementById('offertory');
 const total_services = document.getElementById('services');
-const male_teachers = document.getElementById('male_teachers');
-const female_teachers = document.getElementById('female_teachers');
+const male_teachers = parseInt(male_teachers1.value)+parseInt(male_teachers2.value)+parseInt(male_teachers3.value);
+const female_teachers = parseInt(female_teachers1.value)+parseInt(female_teachers2.value)+parseInt(female_teachers3.value);
+
+const boys=parseInt(firstserviceboys.value)+parseInt(secondserviceboys.value)+parseInt(thirdserviceboys.value);
+const girls=parseInt(firstservicegirls.value)+parseInt(secondservicegirls.value)+parseInt(thirdservicegirls.value);
 const enteredby=document.getElementById('enteredby');
 const special_comment=document.getElementById('remarks');
 const newly_born_again=document.getElementById('bornagain');
@@ -273,18 +374,15 @@ function validateForm() {
     swal('Error', 'Please select a date', 'error');
     return false;
   }
-  if (boys.value === '') {
+  if (firstserviceboys.value === '') {
     swal('Error', 'Please enter the number of boys', 'error');
     return false;
   }
-  if (girls.value === '') {
+  if (firstservicegirls.value === '') {
     swal('Error', 'Please enter the number of girls', 'error');
     return false;
   }
-  if (total.value === '') {
-    swal('Error', 'Please enter the total number of children', 'error');
-    return false;
-  }
+
   if (newly_born_again.value === '') {
     swal('Error', 'How many children got born again?', 'error');
     return false;
@@ -295,22 +393,12 @@ function validateForm() {
     swal('Error', 'Please enter the offertory amount', 'error');
     return false;
   }
-  if (services.value === '') {
+  if (total_services.value === '') {
     swal('Error', 'Please enter the number of services held', 'error');
     return false;
   }
-  if (male_teachers.value === '') {
-    swal('Error', 'Please enter the number of male teachers', 'error');
-    return false;
-  }
-  if (female_teachers.value === '') {
-    swal('Error', 'Please enter the number of female teachers', 'error');
-    return false;
-  }
-  if (total_teachers.value === '') {
-    swal('Error', 'Please enter the total number of teachers', 'error');
-    return false;
-  }
+
+
   if (enteredby.value === '') {
     swal('Error', 'Please enter your name', 'error');
     return false;
@@ -320,34 +408,15 @@ function validateForm() {
     return false;
   }
   //check if inputs are numerical
-  if(isNaN(boys.value)){
+  if(isNaN(firstserviceboys.value)){
     swal('Error', 'Number of boys is a number, not text.', 'error');
     return false;
   }
-  if(isNaN(girls.value)){
+  if(isNaN(firstservicegirls.value)){
     swal('Error', 'Number of girls is a number, not text.', 'error');
     return false;
   }
-  if(isNaN(total.value)){
-    swal('Error', 'Total Number of children is a number, not text.', 'error');
-    return false;
-  }
-  if(isNaN(male_teachers.value)){
-    swal('Error', 'Number of male teachers is a number, not text.', 'error');
-    return false;
-  }
-  if(isNaN(female_teachers.value)){
-    swal('Error', 'Number of female teachers is a number, not text.', 'error');
-    return false;
-  }
-  if(isNaN(total_services.value)){
-    swal('Error', 'Number of services is a number, not text.', 'error');
-    return false;
-  }
-  if(isNaN(total_teachers.value)){
-    swal('Error', 'Total Number of teachers is a number, not text.', 'error');
-    return false;
-  }
+
   return true;
 }
 
@@ -357,15 +426,37 @@ const form = document.getElementById('myForm');
 const data = {
   branch: branch.value,
   event: event.value,
-  day: day.value,
-  boys: boys.value,
-  girls: girls.value,
-  total: total.value,
-  total_teachers: total_teachers.value,
+  service_day: formattedDay,
+  boys_service1: firstserviceboys.value,
+  girls_service1: firstservicegirls.value,
+  children_service1: firstservicetotal,	
+  male_teachers_service1:	male_teachers1.value,
+  female_teachers_service1: female_teachers1.value,	
+  teachers_service1: total_teachers1,
+
+  boys_service2: secondserviceboys.value, 	
+  girls_service2: secondservicegirls.value, 	
+  children_service2:  secondservicetotal, 		
+  male_teachers_service2:	male_teachers2.value,
+  female_teachers_service2: female_teachers2.value,	
+  teachers_service2: total_teachers2,
+
+  boys_service3: thirdserviceboys.value,
+  girls_service3: thirdservicegirls.value,
+  children_service3: thirdservicetotal,	
+  male_teachers_service3:	male_teachers3.value,
+  female_teachers_service3: female_teachers3.value,
+  teachers_service3: total_teachers3,
+
+  total_boys: boys,
+  total_girls: girls,
+  total_children: boys+girls,
+ 
   offertory: offertory.value,
   total_services: total_services.value,
-  male_teachers: male_teachers.value,
-  female_teachers: female_teachers.value,
+  male_teachers: male_teachers,  
+  female_teachers: female_teachers,
+  total_teachers:male_teachers+female_teachers,
   enteredby: enteredby.value,
   special_comment: special_comment.value,
   newly_born_again: newly_born_again.value,
@@ -554,8 +645,15 @@ form.addEventListener('submit', (event) => {
     });
   }
   </script>
+
+
+
+<script>
+ 
+  // </script> 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <footr class="mt-3 btn-primary">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+     <footr class="mt-3 btn-primary pt-5">
       <div class="text-center">
       
        <p class="text-center text-dark">
