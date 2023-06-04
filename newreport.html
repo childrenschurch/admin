@@ -274,7 +274,11 @@ Please fill in all the details below. if no answer then type NA or 0
         <input type="text" name="offertory" id="offertory" placeholder="Total Offertory -UGX">
       </div>
       <div class="m-3">
-        <input  type="text"  name="services" id="services" placeholder="Services">
+        <input  type="text"  name="services" id="services" placeholder="Total Services">
+      </div>
+
+      <div class="m-3">
+        <input type="text" name="allteachers" id="allteachers" placeholder="Total teachers"/>
       </div>
         <div class="m-3">
           <input type="text" name="enteredby" id="enteredby" placeholder="Your Name"/>
@@ -352,6 +356,7 @@ const offertory = document.getElementById('offertory');
 const total_services = document.getElementById('services');
 const male_teachers = parseInt(male_teachers1.value)+parseInt(male_teachers2.value)+parseInt(male_teachers3.value);
 const female_teachers = parseInt(female_teachers1.value)+parseInt(female_teachers2.value)+parseInt(female_teachers3.value);
+const all_teachers= document.getElementById('allteachers');
 
 const boys=parseInt(firstserviceboys.value)+parseInt(secondserviceboys.value)+parseInt(thirdserviceboys.value);
 const girls=parseInt(firstservicegirls.value)+parseInt(secondservicegirls.value)+parseInt(thirdservicegirls.value);
@@ -456,7 +461,7 @@ const data = {
   total_services: total_services.value,
   male_teachers: male_teachers,  
   female_teachers: female_teachers,
-  total_teachers:male_teachers+female_teachers,
+  total_teachers:all_teachers.value,
   enteredby: enteredby.value,
   special_comment: special_comment.value,
   newly_born_again: newly_born_again.value,
