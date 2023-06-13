@@ -57,59 +57,58 @@ color: #000 !important;
   <header>
     <!-- header inner -->
    <!-- header inner -->
-   <nav class="navbar navbar-expand-md chmi text-light">
-    <a class="navbar-brand" href="#">
-      <img src="chcimages/logow.png"  height="50" alt="Company Logo">
-    </a>
-    <button class="text-center navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" aria-hidden="true"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-     
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item text-center">
-          <a class="btn border-0 btn-lightblue" href="https://christsheart.org/" onclick="return confirmRedirect()">CHMI Home <i class="fas fa-sign-in-alt"></i></a>
-        </li>
-        
-        <script>
-       function confirmRedirect() {
-            Swal.fire({
-              title: 'Visit Christs Heart Website?',
-              text: 'You will be redirected to ChristsHeart.org',
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonClass: 'btn-lightgreen',
-              cancelButtonClass: 'chmi',
-              confirmButtonText: 'Yes, we go',
-              cancelButtonText: 'cancel'
-            }).then((result) => {
-              if (result.isConfirmed) {
-                window.location.href = 'https://christsheart.org/';
-              }
-            })
-            return false;
-          }
-        </script>
-        
-      </ul>
-    
-         <h2 class="text-center   whitetext ms-md-5"><i class="fa-solid fa-database lightblue"></i> <span class="heading text-white">Create a New Report</span> 
-        <button class="btn btn-lightpink border-o my-1 ms-lg-5" onclick="showAll()"> <i class="fa-solid fa-eye"></i> See Submitted Reports</button>
-        </h2>
-        <script>
-          function showAll(){
-            window.location.href='messages.html'
-          }
-        </script>
-
-          <h1 class="text-center">
-        <button class="btn bg-light text-dark ms-5 " onclick="window.location.href='index.html'"> <i class="fas fa-sign-out-alt"></i> Logout</button>
-        
-      </h1>
+   <nav class="navbar navbar-expand-md navbar-light chmi">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="chcimages/logow.png" height="50" alt="Company Logo" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a
+              class="btn border-0 btn-lightblue"
+              href="https://christsheart.org/"
+              onclick="return confirmRedirect()">
+              CHMI Home <i class="fas fa-sign-in-alt"></i>
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <button
+              class="btn bg-light text-dark mt-1"
+              onclick="window.location.href='index.html'">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
   
-        
+  
+<div class="container-fluid">
+  <h2 class="text-center   whitetext  ms-md-5"><i class="fa-solid fa-database lightblue"></i> <span class="heading text-white">Create a New Report</span> 
+    <button class="btn btn-lightpink border-o my-3 ms-lg-5" onclick="showAll()"> <i class="fa-solid fa-eye"></i> See Submitted Reports</button>
+    </h2>
+    <script>
+      function showAll(){
+        window.location.href='messages.html'
+      }
+    </script>
+
+  
+</div>  
   
     </header>
      <p class="p-1 h4 text-center bg-lightblue m-0">
@@ -399,7 +398,7 @@ function validateForm() {
 
 
   if (offertory.value === '') {
-    swal('Error', 'Please enter the offertory amount', 'error');
+    swal('Error', 'Please enter the offertory amount, or put 0 or NA', 'error');
     return false;
   }
   if (total_services.value === '') {
