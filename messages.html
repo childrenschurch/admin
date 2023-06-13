@@ -141,11 +141,11 @@
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-      <div class="row">
-        <div class="form-group text-center col-md-8 p-3">
+      <div class="row m-0">
+        <div class="form-group text-center col-md-8 p-3 m-0">
           <div class="row">
-            <div class="col-md-6">
-              <select class="form-control bg-light" id="branches">
+            <div class="col-md-3">
+              <select class="form-control bg-yellow" id="branches">
                 <option value="">Select a branch</option>
                 <option value="bugolobi" class="">Bugolobi</option>
                 <option value="nairobi" class="">Nairobi</option>
@@ -169,28 +169,37 @@
                 <option value="USA" class="">USA</option>
               </select>
             </div>
-            <div class="col-md-3">
-              <button class="btn chmi border-o my-1" onclick="showAll()">
-                <i class="fa-solid fa-eye"></i> Show All
-              </button>
+            <div class="col-md-3 mt-1">
+              <input
+                type="date"
+                name="day"
+                id="day"
+                class="bg-lightblue"
+                placeholder="Event Date" />
             </div>
+            <div class="col-md-3"></div>
             <div class="col-md-3">
-              <button class="btn chmi border-o my-1" onclick="showFiltered()">
-                <i class="fa-solid fa-eye"></i> Show Branch
+              <button class="btn chmi border-o my-1" onclick="showDate()">
+                <i class="fa-solid fa-eye"></i> Show Selected Data
               </button>
             </div>
           </div>
         </div>
-        <div class="col-md-4 p-3">
-          <button class="btn btn-lightgreen border-o" onclick="showForm()">
-            <i class="fa-sharp fa-solid fa-plus"></i> New report
-          </button>
-          <span
-            id="count"
-            class="text-danger bg-yellow px-3 px-3 h4 ms-5 fw-bold"></span>
+
+        <div class="col-md-4 p-3 m-0 row text-center">
+          <div class="col-md-6">
+            <button class="btn chmi border-o my-1" onclick="showAll()">
+              <i class="fa-solid fa-eye"></i> Show All
+            </button>
+          </div>
+          <div class="col-md-6 mt-1">
+            <button class="btn btn-lightgreen border-o" onclick="showForm()">
+              <i class="fa-sharp fa-solid fa-plus"></i> New report
+            </button>
+          </div>
         </div>
       </div>
-
+      <h4 class="bg-lightgreen text-center p-1 fw-bold" id="count"></h4>
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
       <!-- Add this HTML code where you want the table to appear -->
       <table class="table table-striped mb-5">
@@ -284,6 +293,151 @@
                 row = " rows";
               }
               countElement.textContent = "" + rowCount + row;
+              swal("" + rowCount + " rows in " + selectedBranch, "", "success");
+
+              // Generate HTML elements to display filtered data in the table
+              const tableBody = document.getElementById("table-body");
+              tableBody.innerHTML = ""; // Clear any existing rows
+              filteredData.forEach((row) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+              <td>${row.branch}</td>
+              <td>${row.service_day}</td>
+              <td>${row.event}</td>
+              <td>${row.total_boys}</td>
+              <td>${row.total_girls}</td>
+              <td>${row.total_children}</td>
+              <td>${row.total_teachers}</td>
+              <td>${row.offertory}</td>
+              <td>${row.total_services}</td>
+            `;
+                tableBody.appendChild(tr);
+              });
+            });
+        }
+      }
+    </script>
+
+    <script>
+      function showDate() {
+        var selectedBranch = document.getElementById("branches").value;
+        const dayInput = document.getElementById("day");
+        const dayValue = dayInput.value;
+        const day = new Date(dayValue);
+        const options = { day: "2-digit", month: "short", year: "numeric" };
+        const formattedDay = day.toLocaleDateString("en-US", options);
+        const selectedDate = formattedDay;
+
+        console.log(selectedDate);
+        if (selectedBranch === "" && selectedDate === "Invalid Date") {
+          swal("Please select a branch", "", "error");
+
+          const tableBody = document.getElementById("table-body");
+          tableBody.innerHTML = "";
+          const countElement = document.getElementById("count");
+          countElement.textContent = "";
+          return false;
+        }
+        if (selectedDate === "" || selectedDate === "Invalid Date") {
+          swal("Please select a date", "", "error");
+
+          const tableBody = document.getElementById("table-body");
+          tableBody.innerHTML = "";
+
+          const countElement = document.getElementById("count");
+          countElement.textContent = "";
+          return false;
+        }
+
+        if (!selectedBranch) {
+          const dayInput = document.getElementById("day");
+          const dayValue = dayInput.value;
+          console.log(dayValue);
+          const day = new Date(dayValue);
+          const options = { day: "2-digit", month: "short", year: "numeric" };
+          const formattedDay = day.toLocaleDateString("en-US", options);
+          const selectedDate = formattedDay;
+
+          if (!dayValue) {
+            swal("Please select a date", "", "error");
+            return false;
+          } else if (dayValue) {
+            // Fetch data from SheetDB API
+            fetch("https://sheetdb.io/api/v1/wqr29h8b3drq1")
+              .then((response) => response.json())
+              .then((data) => {
+                // Filter data based on the chosen date
+                const filteredData = data.filter(
+                  (row) => row.service_day === selectedDate
+                );
+
+                // Sort filteredData by 'day' property in descending order
+                filteredData.sort((a, b) => new Date(b.day) - new Date(a.day));
+
+                const rowCount = filteredData.length;
+
+                // Display the count in the <p> tag
+                const countElement = document.getElementById("count");
+                let row;
+                if (rowCount === 1) {
+                  row = " row";
+                } else {
+                  row = " rows";
+                }
+                countElement.textContent =
+                  "" + rowCount + "  rows for  " + selectedDate;
+                swal("" + rowCount + " rows", "", "success");
+
+                // Generate HTML elements to display filtered data in the table
+                const tableBody = document.getElementById("table-body");
+                tableBody.innerHTML = ""; // Clear any existing rows
+
+                filteredData.forEach((row) => {
+                  const tr = document.createElement("tr");
+                  tr.innerHTML = `
+            <td>${row.branch}</td>
+            <td>${row.service_day}</td>
+            <td>${row.event}</td>
+            <td>${row.total_boys}</td>
+            <td>${row.total_girls}</td>
+            <td>${row.total_children}</td>
+            <td>${row.total_teachers}</td>
+            <td>${row.offertory}</td>
+            <td>${row.total_services}</td>
+          `;
+                  tableBody.appendChild(tr);
+                });
+              });
+          }
+        } else {
+          // Fetch data from SheetDB API
+          fetch("https://sheetdb.io/api/v1/wqr29h8b3drq1")
+            .then((response) => response.json())
+            .then((data) => {
+              // Filter data based on branch and date column values
+              const filteredData = data.filter(
+                (row) =>
+                  row.branch === selectedBranch &&
+                  row.service_day === selectedDate
+              );
+
+              // Sort filteredData by 'day' property in descending order
+              filteredData.sort((a, b) => new Date(b.day) - new Date(a.day));
+              filteredData.reverse(); // Reverse the order of the filtered data
+
+              // Count the rows
+              const rowCount = filteredData.length;
+
+              // Display the count in the <p> tag
+              const countElement = document.getElementById("count");
+              let row;
+              if (rowCount === 1) {
+                row = " row";
+              } else {
+                row = " rows";
+              }
+              countElement.textContent =
+                selectedBranch + " Data for  " + selectedDate;
               swal("" + rowCount + " rows in " + selectedBranch, "", "success");
 
               // Generate HTML elements to display filtered data in the table
