@@ -18,65 +18,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script
       src="https://kit.fontawesome.com/171bed3d72.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous" />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Comic+Neue&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Architects+Daughter&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Boogaloo&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Baloo&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Schoolbell&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
   </head>
   <!-- body -->
 
@@ -95,8 +82,7 @@
           data-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -133,8 +119,7 @@
           <h1 class="">
             <button
               class="btn bg-light text-dark ms-5"
-              onclick="window.location.href='index.html'"
-            >
+              onclick="window.location.href='index.html'">
               <i class="fas fa-sign-out-alt"></i> Logout
             </button>
           </h1>
@@ -147,8 +132,7 @@
         <span class="heading chmi-text">SERVICE ATTENDANCE REPORTS</span>
         <button
           class="btn chmi mr-3 my-1 ms-lg-5"
-          onclick="return  gotogooglesheet()"
-        >
+          onclick="return  gotogooglesheet()">
           <i class="fas fa-edit"></i> Detailed Database
         </button>
       </h2>
@@ -221,8 +205,7 @@
           </button>
           <span
             id="count"
-            class="text-danger bg-yellow px-3 px-3 h4 ms-5 fw-bold"
-          ></span>
+            class="text-danger bg-yellow px-3 px-3 h4 ms-5 fw-bold"></span>
         </div>
       </div>
 
@@ -269,19 +252,20 @@
             const tableBody = document.getElementById("table-body");
 
             tableBody.innerHTML = ""; // Clear any existing rows
-            data.forEach((row) => {
+            data.reverse().forEach((row) => {
+              // Reverse the order of the data before generating rows
               const tr = document.createElement("tr");
               tr.innerHTML = `
-          <td>${row.branch}</td>
-          <td>${row.service_day}</td>
-          <td>${row.event}</td>
-          <td>${row.total_boys}</td>
-          <td>${row.total_girls}</td>
-          <td>${row.total_children}</td>
-              <td>${row.total_teachers}</td>
-          <td>${row.offertory}</td>
-          <td>${row.total_services}</td>
-        `;
+                <td>${row.branch}</td>
+                <td>${row.service_day}</td>
+                <td>${row.event}</td>
+                <td>${row.total_boys}</td>
+                <td>${row.total_girls}</td>
+                <td>${row.total_children}</td>
+                <td>${row.total_teachers}</td>
+                <td>${row.offertory}</td>
+                <td>${row.total_services}</td>
+              `;
               tableBody.appendChild(tr);
             });
           });
@@ -302,36 +286,40 @@
               const filteredData = data.filter(
                 (row) => row.branch === selectedBranch
               );
+              // Sort filteredData by 'day' property in descending order
+              filteredData.sort((a, b) => new Date(b.day) - new Date(a.day));
+              filteredData.reverse(); // Reverse the order of the filtered data
+
               // Count the rows
               const rowCount = filteredData.length;
 
               // Display the count in the <p> tag
               const countElement = document.getElementById("count");
-              const row = " rows";
-              if (count == 1) {
+              let row;
+              if (rowCount === 1) {
                 row = " row";
+              } else {
+                row = " rows";
               }
-              swal("" + rowCount + " rows in " + selectedBranch, "", "success");
               countElement.textContent = "" + rowCount + row;
-              // Sort filteredData by 'day' property in descending order
-              filteredData.sort((a, b) => new Date(b.day) - new Date(a.day));
+              swal("" + rowCount + " rows in " + selectedBranch, "", "success");
 
               // Generate HTML elements to display filtered data in the table
               const tableBody = document.getElementById("table-body");
-              document.getElementById("table-body").innerHTML = "";
+              tableBody.innerHTML = ""; // Clear any existing rows
               filteredData.forEach((row) => {
                 const tr = document.createElement("tr");
                 tr.innerHTML = `
-          <td>${row.branch}</td>
-          <td>${row.service_day}</td>
-          <td>${row.event}</td>
-          <td>${row.total_boys}</td>
-          <td>${row.total_girls}</td>
-          <td>${row.total_children}</td>
-                 <td>${row.total_teachers}</td>
-          <td>${row.offertory}</td>
-          <td>${row.total_services}</td>
-        `;
+              <td>${row.branch}</td>
+              <td>${row.service_day}</td>
+              <td>${row.event}</td>
+              <td>${row.total_boys}</td>
+              <td>${row.total_girls}</td>
+              <td>${row.total_children}</td>
+              <td>${row.total_teachers}</td>
+              <td>${row.offertory}</td>
+              <td>${row.total_services}</td>
+            `;
                 tableBody.appendChild(tr);
               });
             });

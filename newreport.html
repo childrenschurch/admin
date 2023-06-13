@@ -284,6 +284,9 @@ Please fill in all the details below. if no answer then type NA or 0
           <input type="text" name="enteredby" id="enteredby" placeholder="Your Name"/>
         </div>
         <div class="m-3">
+          <input type="text" name="phone" id="phone" placeholder="Your Phone"/>
+        </div>
+        <div class="m-3">
           <textarea type="text" name="remarks" id="remarks" placeholder="General Comments/ Remarks"></textarea>
         </div>
         <div class="m-3">
@@ -352,15 +355,16 @@ const female_teachers3 = document.getElementById('female_teachers3');
 const total_teachers3 = parseInt(male_teachers3.value)+parseInt(female_teachers3.value);
 
 
-const offertory = document.getElementById('offertory');
+const offertory = document.getElementById('offertory') || 0;
 const total_services = document.getElementById('services');
 const male_teachers = parseInt(male_teachers1.value)+parseInt(male_teachers2.value)+parseInt(male_teachers3.value);
 const female_teachers = parseInt(female_teachers1.value)+parseInt(female_teachers2.value)+parseInt(female_teachers3.value);
 const all_teachers= document.getElementById('allteachers');
 
-const boys=parseInt(firstserviceboys.value)+parseInt(secondserviceboys.value)+parseInt(thirdserviceboys.value);
-const girls=parseInt(firstservicegirls.value)+parseInt(secondservicegirls.value)+parseInt(thirdservicegirls.value);
+const boys=parseInt(firstserviceboys.value) || 0 +parseInt(secondserviceboys.value) || 0+parseInt(thirdserviceboys.value) || 0;
+const girls=parseInt(firstservicegirls.value) || 0+parseInt(secondservicegirls.value) || 0+parseInt(thirdservicegirls.value) || 0;
 const enteredby=document.getElementById('enteredby');
+const phone=document.getElementById('phone');
 const special_comment=document.getElementById('remarks');
 const newly_born_again=document.getElementById('bornagain');
 
@@ -406,6 +410,11 @@ function validateForm() {
 
   if (enteredby.value === '') {
     swal('Error', 'Please enter your name', 'error');
+    return false;
+  }
+
+  if (phone.value === '') {
+    swal('Error', 'Please enter your phone number', 'error');
     return false;
   }
   if (special_comment.value === '') {
@@ -463,6 +472,7 @@ const data = {
   female_teachers: female_teachers,
   total_teachers:all_teachers.value,
   enteredby: enteredby.value,
+  phone: phone.value,
   special_comment: special_comment.value,
   newly_born_again: newly_born_again.value,
   date_entered: new Date().toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })
