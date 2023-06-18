@@ -369,8 +369,8 @@ const male_teachers = parseInt(male_teachers1.value)+parseInt(male_teachers2.val
 const female_teachers = parseInt(female_teachers1.value)+parseInt(female_teachers2.value)+parseInt(female_teachers3.value);
 const all_teachers= document.getElementById('allteachers');
 
-const boys=parseInt(firstserviceboys.value) || 0 +parseInt(secondserviceboys.value) || 0+parseInt(thirdserviceboys.value) || 0;
-const girls=parseInt(firstservicegirls.value) || 0+parseInt(secondservicegirls.value) || 0+parseInt(thirdservicegirls.value) || 0;
+const boys=parseInt(firstserviceboys.value)+parseInt(secondserviceboys.value) +parseInt(thirdserviceboys.value);
+const girls=parseInt(firstservicegirls.value) +parseInt(secondservicegirls.value)+parseInt(thirdservicegirls.value);
 const enteredby=document.getElementById('enteredby');
 const phone=document.getElementById('phone');
 const special_comment=document.getElementById('remarks');
@@ -483,7 +483,7 @@ const data = {
   phone: phone.value,
   special_comment: special_comment.value,
   newly_born_again: newly_born_again.value,
-  date_entered: new Date().toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })
+  date_entered: formattedDay,
 };
 form.addEventListener('submit', (event) => {
   event.preventDefault();
